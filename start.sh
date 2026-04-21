@@ -47,10 +47,14 @@ echo "  model : ${MODEL}"
 echo "  port  : ${PORT}"
 echo "  log   : ${LOG_FILE}"
 
+#set -x
 "${VENV_DIR}/bin/python" -m mlx_lm.server \
     --model "${MODEL}" \
     --port "${PORT}" \
+    --max-tokens 32767 \
+    --chat-template-args '{"enable_thinking": false}' \
     >> "${LOG_FILE}" 2>&1 &
+#set +x
 
 echo $! > "${PID_FILE}"
 echo "Server started (PID $(cat "${PID_FILE}"))"
