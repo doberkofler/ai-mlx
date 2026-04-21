@@ -1,0 +1,6 @@
+# ---------------------------
+# OS / Filesystem
+# ---------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
